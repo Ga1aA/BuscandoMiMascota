@@ -1,6 +1,6 @@
 using Xunit;
 using buscandomimascota;
-
+using System;
 namespace XUnitTestProject
 {
     public class UnitTestBuscandoMiMascota
@@ -22,11 +22,13 @@ namespace XUnitTestProject
             Assert.Equal("nombre", usuario.Nombre);
             Assert.Equal(123, usuario.Telf);
         }
-
-        //Crear una Mascota
-        //Verificar datos mascota
-        //Crear un duenho
-        //Anhadir vacuna a mascota
-        //Verificar que no se creen dos Usuarios con el mismo NombreUsuario
+         [Fact]
+        public void VerificarCrearMascota()
+        {
+            DateTime date1 = new DateTime(2020,10,10);
+            BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
+            administrador.AgregarMascota("nombre", "perro",date1,"");
+            Assert.True(administrador.CantidadMascotas() > 0, "No se creo la mascota");
+        }
     }
 }
