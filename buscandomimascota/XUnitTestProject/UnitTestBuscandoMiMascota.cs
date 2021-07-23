@@ -5,6 +5,8 @@ namespace XUnitTestProject
 {
     public class UnitTestBuscandoMiMascota
     {
+
+        enum tipoMascota{Perro,Gato,Loro,Hamster}
         [Fact]
         public void CrearUsuario()
         {
@@ -27,7 +29,7 @@ namespace XUnitTestProject
         public void VerificarDatosMascota()
         {
             BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
-            administrador.AgregarMascota("Bobby", "Perro", new DateTime(2019, 12, 12), "Pepito");
+            administrador.AgregarMascota("Bobby", tipoMascota.Perro.ToString(), new DateTime(2019, 12, 12), "Pepito");
             Mascota mascota = administrador.ObtenerDatosMascota("Bobby");
             Assert.Equal("Bobby", mascota.Nombre);
             Assert.Equal("Perro", mascota.Tipo);
