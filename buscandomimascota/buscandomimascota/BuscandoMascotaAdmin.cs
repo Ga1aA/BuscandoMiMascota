@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using buscandomimascota.Exceptions;
 
 namespace buscandomimascota
 {
@@ -10,6 +11,13 @@ namespace buscandomimascota
 
         public void AgregarUsuario(string nombre, string apellido, int telf, string usuario, string password)
         {
+                foreach (Usuario usuariod in listaUsuarios)
+                {
+                    if (usuario == usuariod.NombreUsuario)
+                    {
+                        throw new ExcepcionDeUsuario("El nombre de usuario ya existe");
+                    }
+                }
                 Usuario newUser = new Usuario(nombre, apellido, telf, usuario, password);
                 listaUsuarios.Add(newUser);
         }
