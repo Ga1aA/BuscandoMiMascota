@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,26 +8,22 @@ namespace buscandomimascota
 {
     public class Mascota
     {
-
         private string nombre;
-        private int edad;
-        private string tipoMascota;
+        private string tipo;
         private DateTime fechaPerdido;
-        private string descripcion;
+        private string usuario;
 
-        public Mascota(string nombre, int edad, string tipoMascota, DateTime fechaPerdido, string descripcion)
-        {
+        public Mascota(string nombre, string tipo, DateTime fechaPerdido, string usuario)
+         {
             this.nombre = nombre;
-            this.edad = edad;
-            this.tipoMascota = tipoMascota;
+            this.tipo = tipo;
             this.fechaPerdido = fechaPerdido;
-            this.descripcion = descripcion;
-        }
-
-        public string NombreMascota { get { return nombre; } }
-        public string TipoMascota { get { return tipoMascota; } }
-        public string Descripcion { get { return descripcion; } }
+            this.usuario = usuario;
+         }
+        public string Nombre { get { return nombre; } }
+        public string Tipo { get { return tipo; } }
+        public string Propietario { get { return usuario; } }
         public DateTime FechaPerdido { get { return fechaPerdido; } }
-
     }
+        
 }

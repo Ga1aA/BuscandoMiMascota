@@ -6,16 +6,27 @@ namespace buscandomimascota
     public class BuscandoMascotaAdmin
     {
         private List<Usuario> listaUsuarios = new List<Usuario>();
+        private List<Mascota> listaMascota = new List<Mascota>();
 
         public void AgregarUsuario(string nombre, string apellido, int telf, string usuario, string password)
         {
                 Usuario newUser = new Usuario(nombre, apellido, telf, usuario, password);
                 listaUsuarios.Add(newUser);
         }
+        public void AgregarMascota(string nombre, string tipo, DateTime fechaPerdido, string usuario)
+        {
+            Mascota newMascota = new Mascota(nombre, tipo, fechaPerdido, usuario);
+            listaMascota.Add(newMascota);
+        }    
 
         public int CantidadUsuarios()
         {
             return listaUsuarios.Count;
+        }
+        
+        public int CantidadMascotas()
+        {
+            return listaMascota.Count;
         }
 
         public Usuario ObtenerDatosUsuario(string nombreUsuario)
@@ -34,7 +45,7 @@ namespace buscandomimascota
         {
             foreach (Mascota mascotas in listaMascota)
             {
-                if (nombreMascota == mascotas.NombreMascota)
+                if (nombreMascota == mascotas.Nombre)
                 {
                     return mascotas;
                 }
@@ -43,4 +54,7 @@ namespace buscandomimascota
         }
 
     }
+
+    
 }
+

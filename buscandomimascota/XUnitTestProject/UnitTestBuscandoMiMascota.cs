@@ -1,7 +1,6 @@
 using Xunit;
 using buscandomimascota;
 using System;
-
 namespace XUnitTestProject
 {
     public class UnitTestBuscandoMiMascota
@@ -28,10 +27,19 @@ namespace XUnitTestProject
         public void VerificarDatosMascota()
         {
             BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
-            administrador.AgregarMascota("Bobby", 1, "Perro", new DateTime(2019, 12, 12), "Color cafe con manchas blancas.");
+            administrador.AgregarMascota("Bobby", "Perro", new DateTime(2019, 12, 12), "Pepito");
             Mascota mascota = administrador.ObtenerDatosMascota("Bobby");
-            Assert.Equal("Bobby", mascota.NombreMascota);
-            Assert.Equal("Perro", mascota.TipoMascota);
+            Assert.Equal("Bobby", mascota.Nombre);
+            Assert.Equal("Perro", mascota.Tipo);
             Assert.Equal(new DateTime(2019, 12, 12), mascota.FechaPerdido);
         }
+         [Fact]
+        public void VerificarCrearMascota()
+        {
+            DateTime date1 = new DateTime(2020,10,10);
+            BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
+            administrador.AgregarMascota("nombre", "perro",date1,"");
+            Assert.True(administrador.CantidadMascotas() > 0, "No se creo la mascota");
+        }
+    }
 }
