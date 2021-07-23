@@ -1,5 +1,7 @@
+using System;
 using Xunit;
 using buscandomimascota;
+using buscandomimascota.Exceptions;
 
 namespace XUnitTestProject
 {
@@ -21,6 +23,22 @@ namespace XUnitTestProject
             Usuario usuario = administrador.ObtenerDatosUsuario("usuario");
             Assert.Equal("nombre", usuario.Nombre);
             Assert.Equal(123, usuario.Telf);
+        }
+
+        [Fact]
+        public void VerificarCreacionUsuarioDuplicado()
+        {
+            BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
+            administrador.AgregarUsuario("Robert", "Bateon", 72778944, "Robey", "rbateon123");
+            try
+            {
+                administrador.AgregarUsuario("Robertinho", "Nieves", 78948955, "Robey", "jnieves00");
+            }
+            catch (ExcepcionDeUsuario e)
+            {
+                Assert.True(e.Message == "El nombre de usuario ya existe", e.Message);
+            }
+            Assert.True(administrador.CantidadUsuarios() == 1, "Existen 2 usuarios con el mismo nombre");
         }
 
         //Crear una Mascota
