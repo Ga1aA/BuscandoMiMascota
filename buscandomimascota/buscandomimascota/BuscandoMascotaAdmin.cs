@@ -13,9 +13,9 @@ namespace buscandomimascota
                 Usuario newUser = new Usuario(nombre, apellido, telf, usuario, password);
                 listaUsuarios.Add(newUser);
         }
-        public void AgregarMascota(string nombre, string tipo, DateTime fechaPerdido, string usuario)
+        public void AgregarMascota(string nombre, Mascota.tipoMascota tipoMascota, DateTime fechaPerdido, string usuario)
         {
-            Mascota newMascota = new Mascota(nombre, tipo, fechaPerdido, usuario);
+            Mascota newMascota = new Mascota(nombre, tipoMascota, fechaPerdido, usuario);
             listaMascota.Add(newMascota);
         }    
 
