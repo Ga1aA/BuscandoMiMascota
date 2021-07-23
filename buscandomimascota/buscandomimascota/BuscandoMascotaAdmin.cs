@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace buscandomimascota
 {
@@ -10,12 +10,12 @@ namespace buscandomimascota
 
         public void AgregarUsuario(string nombre, string apellido, int telf, string usuario, string password)
         {
-            Usuario newUser = new Usuario(nombre, apellido, telf, usuario, password);
-            listaUsuarios.Add(newUser);
+                Usuario newUser = new Usuario(nombre, apellido, telf, usuario, password);
+                listaUsuarios.Add(newUser);
         }
-        public void AgregarMascota(string nombre, string tipo, DateTime fechaPerdido, string usuario)
+        public void AgregarMascota(string nombre, Mascota.tipoMascota tipoMascota, DateTime fechaPerdido, string usuario)
         {
-            Mascota newMascota = new Mascota(nombre, tipo, fechaPerdido, usuario);
+            Mascota newMascota = new Mascota(nombre, tipoMascota, fechaPerdido, usuario);
             listaMascota.Add(newMascota);
         }    
 
@@ -36,6 +36,18 @@ namespace buscandomimascota
                 if (nombreUsuario == usuario.NombreUsuario)
                 {
                     return usuario;
+                }
+            };
+            return null;
+        }
+
+        public Mascota ObtenerDatosMascota(string nombreMascota)
+        {
+            foreach (Mascota mascotas in listaMascota)
+            {
+                if (nombreMascota == mascotas.Nombre)
+                {
+                    return mascotas;
                 }
             };
             return null;
