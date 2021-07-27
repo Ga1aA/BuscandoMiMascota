@@ -46,6 +46,18 @@ namespace XUnitTestProject
             Assert.Equal(new DateTime(2019, 12, 12), mascota.FechaPerdido);
         }
         [Fact]
+
+        public void VerificarCrearDuenho()
+        {
+            BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
+            administrador.AgregarDuenho("Jose", "apellido", 123, "usuario", "pass");
+            Duenho duenho = administrador.ObtenerDatosDuenho("Jose");
+            duenho.email = "a@a";
+            Console.WriteLine(duenho.email);
+            Assert.Equal("Jose", duenho.Nombre);
+        }
+
+        [Fact]
         public void VerificarCreacionUsuarioDuplicado()
         {
             BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();

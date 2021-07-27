@@ -25,9 +25,15 @@ namespace buscandomimascota
         {
             Mascota newMascota = new Mascota(nombre, tipoMascota, fechaPerdido, usuario);
             listaMascota.Add(newMascota);
-        }    
+        }
 
-        public int CantidadUsuarios()
+        public void AgregarDuenho(string nombre, string apellido, int telf, string usuario, string password)
+        { 
+          Duenho newDuenho = new Duenho(nombre, apellido, telf, usuario, password, this.listaMascota);
+          listaUsuarios.Add(newDuenho);
+        }
+
+    public int CantidadUsuarios()
         {
             return listaUsuarios.Count;
         }
@@ -61,8 +67,18 @@ namespace buscandomimascota
             return null;
         }
 
-    }
+        public Duenho ObtenerDatosDuenho(string usuarioEsDuenho)
+        {
+          foreach (Duenho duenho in listaUsuarios)
+          {
+            if (typeof(Duenho).ToString().Contains("Duenho"))
+            {
+              return duenho;
+            }
+          }
+          return null;
+        }
 
-    
+  }
 }
 
