@@ -27,9 +27,10 @@ namespace buscandomimascota
             listaMascota.Add(newMascota);
         }
 
-        public void AgregarDuenho(string nombre, string apellido, int telf, string usuario, string password)
-        { 
-          Duenho newDuenho = new Duenho(nombre, apellido, telf, usuario, password, this.listaMascota);
+    public void AgregarDuenho(string nombre, string apellido, int telf, string usuario, string password)
+    {
+          Mascota ultimaMascota = listaMascota[listaMascota.Count - 1];
+          Duenho newDuenho = new Duenho(nombre, apellido, telf, usuario, password, ultimaMascota);
           listaUsuarios.Add(newDuenho);
         }
 

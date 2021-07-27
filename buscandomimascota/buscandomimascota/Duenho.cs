@@ -8,13 +8,12 @@ namespace buscandomimascota
 {
   public class Duenho : Usuario
   {
-    //private List<Mascota> mascotas;
     public string email { get; set; }
 
-    public Duenho(string nombre, string apellido, int telefono, string usuario, string password, List<Mascota> mascotas) : base(nombre, apellido, telefono, usuario, password)
+    public Duenho(string nombre, string apellido, int telefono, string usuario, string password, Mascota mascota) : base(nombre, apellido, telefono, usuario, password)
     {
-      //this.mascotas = mascotas;
-      this.Mascotas = mascotas;
+      this.Mascotas = new List<Mascota>();
+      this.Mascotas.Add(mascota);
     }
 
     public List<Mascota> Mascotas{ get; set; }

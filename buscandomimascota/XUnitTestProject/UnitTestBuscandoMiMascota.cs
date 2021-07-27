@@ -45,11 +45,12 @@ namespace XUnitTestProject
             Assert.Equal("Perro", mascota.Tipo);
             Assert.Equal(new DateTime(2019, 12, 12), mascota.FechaPerdido);
         }
-        [Fact]
 
+        [Fact]
         public void VerificarCrearDuenho()
         {
             BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
+            administrador.AgregarMascota("Boby", Mascota.tipoMascota.Perro, new DateTime(2019, 12, 12), "Pepo");
             administrador.AgregarDuenho("Jose", "apellido", 123, "usuario", "pass");
             Duenho duenho = administrador.ObtenerDatosDuenho("Jose");
             duenho.email = "a@a";
