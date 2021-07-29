@@ -68,13 +68,13 @@ namespace buscandomimascota
             return null;
         }
 
-        public Duenho ObtenerDatosDuenho(string usuarioEsDuenho)
+        public Duenho ObtenerDatosDuenho(string nombreUsuario)
         {
-          foreach (Duenho duenho in listaUsuarios)
+          foreach (Usuario duenho in listaUsuarios)
           {
-            if (typeof(Duenho).ToString().Contains("Duenho"))
+            if (duenho.GetType().Name == "Duenho" && duenho.NombreUsuario==nombreUsuario)
             {
-              return duenho;
+              return (Duenho)duenho;
             }
           }
           return null;

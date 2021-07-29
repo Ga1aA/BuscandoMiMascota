@@ -51,11 +51,10 @@ namespace XUnitTestProject
         {
             BuscandoMascotaAdmin administrador = new BuscandoMascotaAdmin();
             administrador.AgregarMascota("Boby", Mascota.tipoMascota.Perro, new DateTime(2019, 12, 12), "Pepo");
-            administrador.AgregarDuenho("Jose", "apellido", 123, "usuario", "pass");
-            Duenho duenho = administrador.ObtenerDatosDuenho("Jose");
+            administrador.AgregarDuenho("Johnny", "Thunder", 123, "zarape23", "pass123");
+            Duenho duenho = administrador.ObtenerDatosDuenho("zarape23");
             duenho.email = "a@a";
-            Console.WriteLine(duenho.email);
-            Assert.Equal("Jose", duenho.Nombre);
+            Assert.Equal("zarape23", duenho.NombreUsuario);
         }
 
         [Fact]
